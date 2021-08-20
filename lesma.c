@@ -1,5 +1,5 @@
 #include <stdio.h>
-int main(int argc, char const *argv[])
+int main()
 {
     int vel_lim, maior = -9999,qtd_ls, vel[100],hc;
     scanf("%d",&qtd_ls);
