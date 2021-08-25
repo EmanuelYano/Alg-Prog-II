@@ -61,7 +61,12 @@ void marcar_ocorrencia_vertical(char palavra[],
         char A[MAX_ALTURA][MAX_LARGURA],
         char B[MAX_ALTURA][MAX_LARGURA],
         int m, int n, int i, int j) {
-  /* Fazer */
+  int k = 0;
+  while (i+k < m && A[i+k][j] == palavra[k] && palavra[k] != '\0')
+    k++;
+  if (palavra[k] == '\0') /* achamos a palavra */
+    for (k--; k >= 0; k--)
+      B[i+k][j] = palavra[k];
 }
 
 void marcar_ocorrencia_diagonal(char palavra[],
@@ -69,9 +74,20 @@ void marcar_ocorrencia_diagonal(char palavra[],
         char B[MAX_ALTURA][MAX_LARGURA],
         int m, int n, int i, int j) {
   /* Fazer: */
-  /* Diagonal para direita e para baixo */
-  /* Diagonal para esquerda e para baixo */
+   int k = 0;
+  while (i+k < m && j+k < n && A[i+k][j+k] == palavra[k] && palavra[k] != '\0')
+    k++;
+  if (palavra[k] == '\0')
+    for (k--; k >= 0; k--)
+      B[i+k][j+k] = palavra[k];
+  k = 0;
+  while (i+k < m && j-k >= 0 && A[i+k][j-k] == palavra[k] && palavra[k] != '\0')
+    k++;
+  if (palavra[k] == '\0')
+    for (k--; k >= 0; k--)
+      B[i+k][j-k] = palavra[k];
 }
+
 
 void marcar_ocorrencias(char palavra[],
         char A[MAX_ALTURA][MAX_LARGURA],
@@ -111,3 +127,6 @@ int main() {
   /* imprime matriz resultante */
   imprimir_matriz(B, m, n);
 }
+
+
+ 
