@@ -1,5 +1,9 @@
 #include <stdio.h>
-int main(){   
+int fib(int i){
+    
+}
+
+int main(){
     
     return 0;
 }
