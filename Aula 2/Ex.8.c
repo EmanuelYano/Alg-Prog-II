@@ -3,8 +3,7 @@
 int ciclo(int n){
     int i = 1;
     printf("%d ",n); 
-    while(n > 1){
-        
+    while(n > 1){        
         if(n % 2 == 0)
             n /= 2;
         else
@@ -12,29 +11,29 @@ int ciclo(int n){
         i += 1;    
         printf("%d ",n);  
     }       
-    printf("\nComprimento do ciclo = %d\n", i);    
+    return i;
 }
 
-int cicloR(int n, int k){
-    k += 1;
+int cicloR(int n){
     printf("%d ",n);
-    if(n == 1){         
-        printf("\nComprimento do ciclo = %d",k);
+    if(n == 1){            
         return n;
     }else if(n % 2 == 0){      
-        return cicloR(n/2,k);        
+        return cicloR(n/2) +1;        
     }else{                
-        return cicloR(n * 3 + 1,k);  
+        return cicloR(n * 3 + 1) +1;  
     }
 }
 
 int main(){
-    int n, k=0;
+    int n, k;
     scanf("%d", &n);
     printf("\\----------Sem usar recursao----------/\n");    
-    ciclo(n);
+    k = ciclo(n);
+    printf("\nComprimento do ciclo = %d\n", k); 
     printf("\n");
     printf("\\----------Usando recursao----------/\n");
-    cicloR(n,k);
+    k = cicloR(n);
+    printf("\nComprimento do ciclo = %d",k);
     return 0;
 }
