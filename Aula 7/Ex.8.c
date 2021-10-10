@@ -1,4 +1,6 @@
 #include <stdio.h>
+/* Como você modificaria a função quicksort 
+para ordenar elementos em ordem descrescente*/
 
 void troca(int *x, int *y){
     int z;
@@ -15,10 +17,10 @@ int separa(int p, int r, int num[r]){
     while(i<j){
         do{
             j--;
-        }while(num[j] > x);//>
+        }while(num[j] < x);//>
         do{
             i++;;
-        }while(num[i] < x);//<
+        }while(num[i] > x);//<
         if(i<j)
             troca(&num[i],&num[j]);
         else    
@@ -35,27 +37,17 @@ void orde_rapida(int p, int r, int num[r]){
     }
 }
 
-
 int main(){
-    int n, tmp;
-    scanf("%d",&n);
-    int num[n], par=0, imp=n-1;
-    for(int j=0;j<n;j++){
-        scanf("%d",&tmp);
-        if(tmp % 2 == 0){
-            num[par] = tmp;
-            par++;
-        }else{
-            num[imp] = tmp;
-            imp--;
-        }
-    }      
-    orde_rapida(0,(par),num);    
-    orde_rapida((par+1),n,num);
-    for(int i=0;i<par;i++)
-        printf("%d\n", num[i]);
-    for(int i=n-1;i>par;i--)
-        printf("%d\n", num[i]);
-    
+    int n;
+    printf("Digite a quantidade de numeros: ");
+    scanf("%d", &n);
+    int num[n];
+    printf("Digite os numeros: ");
+    for(int i = 0; i < n; i++)
+        scanf("%d", &num[i]);
+    orde_rapida(0,n,num);
+    printf("\nOrdem decrescente numeros: ");
+    for(int i = 1; i < n+1; i++)
+        printf("%d ", num[i]);
     return 0;
 }

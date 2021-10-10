@@ -80,7 +80,7 @@ void selectionsort(int n, int v[])
     min = i;
     for (j = i+1; j < n; j++)
       if (v[j] < v[min])
-	min = j;
+        min = j;
     troca(&v[i], &v[min]);
   }
 }
